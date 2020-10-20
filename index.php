@@ -9,7 +9,7 @@
 <body>
     <form method="POST" action="index.php">
         <h1>Zoek je AK vraag op</h1>
-        <input type="text" class="user" name="informatie" placeholder="gebruikersnaam">
+        <input type="text" class="user" name="informatie" placeholder="Hou het zo kort mogelijk">
         <input type="submit" value="KLIK">
     </form>
     <?php
@@ -22,14 +22,14 @@
 
         if (isset($_POST['info'])) {
             $informatie = $_POST["informatie"];
-            $query = SELECT * FROM info WHERE informatie LIKE %$informatie%;
+            $query = "SELECT * FROM info WHERE informatie LIKE '%$informatie%'";
             $result = $conn->query($query);
 
             echo "Hier zijn de resultaten";
             echo "<table>";
             for ($i = 0; $i < $result->num_rows; $i++) {
                 $row = $result->fetch_assoc();
-                echo "<tr><td>{$row["informatie"]}</td></tr>";
+                echo "<tr><td>{$row['informatie']}</td></tr>";
             }
 
             echo "</table";
