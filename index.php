@@ -22,7 +22,7 @@
 
         if (isset($_POST['info])) {
             $informatie = $_POST["informatie"];
-            $query = "SELECT * FROM products WHERE informatie LIKE '%$informatie%'";
+            $query = "SELECT * FROM products WHERE informatie LIKE '%$informatie%' ";
             $result = $conn->query($query);
 
             echo "Hier zijn de resultaten";
