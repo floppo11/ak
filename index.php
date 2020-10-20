@@ -20,9 +20,9 @@
         $user = "root";
         $conn = new mysqli($ip, $user, $pw, $db);
 
-        if (isset($_POST['info])) {
+        if (isset($_POST['info'])) {
             $informatie = $_POST["informatie"];
-            $query = "SELECT * FROM products WHERE informatie LIKE '%$informatie%' ";
+            $query = SELECT * FROM info WHERE informatie LIKE %$informatie%;
             $result = $conn->query($query);
 
             echo "Hier zijn de resultaten";
