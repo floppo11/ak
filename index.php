@@ -21,15 +21,15 @@
         $conn = new mysqli($ip, $user, $pw, $db);
 
         if (isset($_POST['info])) {
-            $info = $_POST["titel"];
-            $query = "SELECT * FROM products WHERE naam LIKE '%$titel%'";
+            $info = $_POST["informatie"];
+            $query = "SELECT * FROM products WHERE informatie LIKE '%$informatie%'";
             $result = $conn->query($query);
 
             echo "Hier zijn de resultaten";
             echo "<table>";
             for ($i = 0; $i < $result->num_rows; $i++) {
                 $row = $result->fetch_assoc();
-                echo "<tr><td>{$row['titel']}</td></tr>";
+                echo "<tr><td>{$row['informatie']}</td></tr>";
             }
 
             echo "</table";
