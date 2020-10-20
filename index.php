@@ -29,7 +29,7 @@
             echo "<table>";
             for ($i = 0; $i < $result->num_rows; $i++) {
                 $row = $result->fetch_assoc();
-                echo "<tr><td>{$row['titel' . 'informatie']}</td></tr>";
+                echo "<tr><td>{$row['titel']}</td></tr>";
             }
 
             echo "</table";
