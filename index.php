@@ -9,7 +9,7 @@
 <body>
     <form method="POST" action="index.php">
         <h1>Zoek je AK vraag op</h1>
-        <input type="text" class="user" name="naam" placeholder="gebruikersnaam">
+        <input type="text" class="user" name="informatie" placeholder="gebruikersnaam">
         <input type="submit" value="KLIK">
     </form>
     <?php
@@ -21,7 +21,7 @@
         $conn = new mysqli($ip, $user, $pw, $db);
 
         if (isset($_POST['info])) {
-            $info = $_POST["informatie"];
+            $informatie = $_POST["informatie"];
             $query = "SELECT * FROM products WHERE informatie LIKE '%$informatie%'";
             $result = $conn->query($query);
 
@@ -29,12 +29,10 @@
             echo "<table>";
             for ($i = 0; $i < $result->num_rows; $i++) {
                 $row = $result->fetch_assoc();
-                echo "<tr><td>{$row['informatie']}</td></tr>";
+                echo "<tr><td>{$row["informatie"]}</td></tr>";
             }
 
             echo "</table";
-// namen van de tabel rijen
-//| naam    | achternaam | leefijd
         }
     ?>
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
