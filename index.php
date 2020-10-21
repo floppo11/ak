@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form method="POST" action="index.php">
-        <h1>Zoek je AK vraag op</h1>
-        <input type="text" class="user" name="informatie" placeholder="Hou het zo kort mogelijk">
+<form method="POST" action="index.php">
+        <h1>Zoek hier je info voor AK.</h1>
+        <input type="text" class="user" name="naam" placeholder="hou het zo kort mogelijk">
         <input type="submit" value="KLIK">
     </form>
     <?php
@@ -20,9 +20,9 @@
         $user = "root";
         $conn = new mysqli($ip, $user, $pw, $db);
 
-        if (isset($_POST['info'])) {
-            $informatie = $_POST["informatie"];
-            $query = "SELECT * FROM info WHERE informatie LIKE '%$informatie%'";
+        if (isset($_POST['naam'])) {
+            $naam = $_POST["naam"];
+            $query = "SELECT * FROM info WHERE informatie LIKE '%$naam%'";
             $result = $conn->query($query);
 
             echo "Hier zijn de resultaten";
@@ -34,7 +34,26 @@
 
             echo "</table";
         }
+    ?>   
+    <form method="POST" action="index.php">
+        <h1>Voeg iets toe.</h1>
+        <input type="text" class="user" name="tv" placeholder="hou het zo kort mogelijk">
+        <input type="submit" value="KLIK">
+    </form>
+    <?php
+            $db = "AARDRIJKSKUNDE";
+            $ip = "localhost";
+            $pw = "";
+            $user = "root";
+            $conn = new mysqli($ip, $user, $pw, $db);
+
+            if (isset($_POST['naam'])) {
+                $tv = $_POST["tv"];
+                $query = "INSERT INTO info VALUES (
+                    "%$tv%"
+                    )";
+                $result = $conn->query($query);
     ?>
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+    
 </body>
 </html>
